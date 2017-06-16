@@ -12,6 +12,12 @@
 		9158E6991EF42EDD001FAA2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9158E6981EF42EDD001FAA2F /* Assets.xcassets */; };
 		9158E69C1EF42EDD001FAA2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9158E69A1EF42EDD001FAA2F /* Main.storyboard */; };
 		9158E6A71EF42EDD001FAA2F /* LispMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158E6A61EF42EDD001FAA2F /* LispMacTests.swift */; };
+		9158E6BF1EF42F04001FAA2F /* LispCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9158E6B61EF42F03001FAA2F /* LispCore.framework */; };
+		9158E6C61EF42F04001FAA2F /* LispCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158E6C51EF42F04001FAA2F /* LispCoreTests.swift */; };
+		9158E6C81EF42F04001FAA2F /* LispCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 9158E6B81EF42F04001FAA2F /* LispCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9158E6CB1EF42F04001FAA2F /* LispCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9158E6B61EF42F03001FAA2F /* LispCore.framework */; };
+		9158E6CC1EF42F04001FAA2F /* LispCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9158E6B61EF42F03001FAA2F /* LispCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9158E6D51EF42F41001FAA2F /* lisp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158E6D41EF42F41001FAA2F /* lisp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,7 +28,42 @@
 			remoteGlobalIDString = 9158E6901EF42EDD001FAA2F;
 			remoteInfo = LispMac;
 		};
+		9158E6C01EF42F04001FAA2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9158E6891EF42EDD001FAA2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9158E6B51EF42F03001FAA2F;
+			remoteInfo = LispCore;
+		};
+		9158E6C21EF42F04001FAA2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9158E6891EF42EDD001FAA2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9158E6901EF42EDD001FAA2F;
+			remoteInfo = LispMac;
+		};
+		9158E6C91EF42F04001FAA2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9158E6891EF42EDD001FAA2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9158E6B51EF42F03001FAA2F;
+			remoteInfo = LispCore;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9158E6D01EF42F04001FAA2F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9158E6CC1EF42F04001FAA2F /* LispCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9158E6911EF42EDD001FAA2F /* LispMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LispMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +75,13 @@
 		9158E6A21EF42EDD001FAA2F /* LispMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LispMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9158E6A61EF42EDD001FAA2F /* LispMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LispMacTests.swift; sourceTree = "<group>"; };
 		9158E6A81EF42EDD001FAA2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9158E6B61EF42F03001FAA2F /* LispCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LispCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9158E6B81EF42F04001FAA2F /* LispCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LispCore.h; sourceTree = "<group>"; };
+		9158E6B91EF42F04001FAA2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9158E6BE1EF42F04001FAA2F /* LispCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LispCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9158E6C51EF42F04001FAA2F /* LispCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LispCoreTests.swift; sourceTree = "<group>"; };
+		9158E6C71EF42F04001FAA2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9158E6D41EF42F41001FAA2F /* lisp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lisp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9158E6CB1EF42F04001FAA2F /* LispCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +97,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9158E6B21EF42F03001FAA2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9158E6BB1EF42F04001FAA2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9158E6BF1EF42F04001FAA2F /* LispCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +123,8 @@
 			children = (
 				9158E6931EF42EDD001FAA2F /* LispMac */,
 				9158E6A51EF42EDD001FAA2F /* LispMacTests */,
+				9158E6B71EF42F04001FAA2F /* LispCore */,
+				9158E6C41EF42F04001FAA2F /* LispCoreTests */,
 				9158E6921EF42EDD001FAA2F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +134,8 @@
 			children = (
 				9158E6911EF42EDD001FAA2F /* LispMac.app */,
 				9158E6A21EF42EDD001FAA2F /* LispMacTests.xctest */,
+				9158E6B61EF42F03001FAA2F /* LispCore.framework */,
+				9158E6BE1EF42F04001FAA2F /* LispCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,7 +161,37 @@
 			path = LispMacTests;
 			sourceTree = "<group>";
 		};
+		9158E6B71EF42F04001FAA2F /* LispCore */ = {
+			isa = PBXGroup;
+			children = (
+				9158E6D41EF42F41001FAA2F /* lisp.swift */,
+				9158E6B81EF42F04001FAA2F /* LispCore.h */,
+				9158E6B91EF42F04001FAA2F /* Info.plist */,
+			);
+			path = LispCore;
+			sourceTree = "<group>";
+		};
+		9158E6C41EF42F04001FAA2F /* LispCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				9158E6C51EF42F04001FAA2F /* LispCoreTests.swift */,
+				9158E6C71EF42F04001FAA2F /* Info.plist */,
+			);
+			path = LispCoreTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9158E6B31EF42F03001FAA2F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9158E6C81EF42F04001FAA2F /* LispCore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		9158E6901EF42EDD001FAA2F /* LispMac */ = {
@@ -103,10 +201,12 @@
 				9158E68D1EF42EDD001FAA2F /* Sources */,
 				9158E68E1EF42EDD001FAA2F /* Frameworks */,
 				9158E68F1EF42EDD001FAA2F /* Resources */,
+				9158E6D01EF42F04001FAA2F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9158E6CA1EF42F04001FAA2F /* PBXTargetDependency */,
 			);
 			name = LispMac;
 			productName = LispMac;
@@ -131,6 +231,43 @@
 			productReference = 9158E6A21EF42EDD001FAA2F /* LispMacTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		9158E6B51EF42F03001FAA2F /* LispCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9158E6CD1EF42F04001FAA2F /* Build configuration list for PBXNativeTarget "LispCore" */;
+			buildPhases = (
+				9158E6B11EF42F03001FAA2F /* Sources */,
+				9158E6B21EF42F03001FAA2F /* Frameworks */,
+				9158E6B31EF42F03001FAA2F /* Headers */,
+				9158E6B41EF42F03001FAA2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LispCore;
+			productName = LispCore;
+			productReference = 9158E6B61EF42F03001FAA2F /* LispCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9158E6BD1EF42F04001FAA2F /* LispCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9158E6D11EF42F04001FAA2F /* Build configuration list for PBXNativeTarget "LispCoreTests" */;
+			buildPhases = (
+				9158E6BA1EF42F04001FAA2F /* Sources */,
+				9158E6BB1EF42F04001FAA2F /* Frameworks */,
+				9158E6BC1EF42F04001FAA2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9158E6C11EF42F04001FAA2F /* PBXTargetDependency */,
+				9158E6C31EF42F04001FAA2F /* PBXTargetDependency */,
+			);
+			name = LispCoreTests;
+			productName = LispCoreTests;
+			productReference = 9158E6BE1EF42F04001FAA2F /* LispCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -146,6 +283,16 @@
 						ProvisioningStyle = Automatic;
 					};
 					9158E6A11EF42EDD001FAA2F = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9158E6901EF42EDD001FAA2F;
+					};
+					9158E6B51EF42F03001FAA2F = {
+						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					9158E6BD1EF42F04001FAA2F = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9158E6901EF42EDD001FAA2F;
@@ -167,6 +314,8 @@
 			targets = (
 				9158E6901EF42EDD001FAA2F /* LispMac */,
 				9158E6A11EF42EDD001FAA2F /* LispMacTests */,
+				9158E6B51EF42F03001FAA2F /* LispCore */,
+				9158E6BD1EF42F04001FAA2F /* LispCoreTests */,
 			);
 		};
 /* End PBXProject section */
@@ -182,6 +331,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9158E6A01EF42EDD001FAA2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9158E6B41EF42F03001FAA2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9158E6BC1EF42F04001FAA2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -208,6 +371,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9158E6B11EF42F03001FAA2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9158E6D51EF42F41001FAA2F /* lisp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9158E6BA1EF42F04001FAA2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9158E6C61EF42F04001FAA2F /* LispCoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -215,6 +394,21 @@
 			isa = PBXTargetDependency;
 			target = 9158E6901EF42EDD001FAA2F /* LispMac */;
 			targetProxy = 9158E6A31EF42EDD001FAA2F /* PBXContainerItemProxy */;
+		};
+		9158E6C11EF42F04001FAA2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9158E6B51EF42F03001FAA2F /* LispCore */;
+			targetProxy = 9158E6C01EF42F04001FAA2F /* PBXContainerItemProxy */;
+		};
+		9158E6C31EF42F04001FAA2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9158E6901EF42EDD001FAA2F /* LispMac */;
+			targetProxy = 9158E6C21EF42F04001FAA2F /* PBXContainerItemProxy */;
+		};
+		9158E6CA1EF42F04001FAA2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9158E6B51EF42F03001FAA2F /* LispCore */;
+			targetProxy = 9158E6C91EF42F04001FAA2F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -325,6 +519,7 @@
 		9158E6AC1EF42EDD001FAA2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = LispMac/Info.plist;
@@ -338,6 +533,7 @@
 		9158E6AD1EF42EDD001FAA2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = LispMac/Info.plist;
@@ -378,6 +574,83 @@
 			};
 			name = Release;
 		};
+		9158E6CE1EF42F04001FAA2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = LispCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispCore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9158E6CF1EF42F04001FAA2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = LispCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispCore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9158E6D21EF42F04001FAA2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LispCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LispMac.app/Contents/MacOS/LispMac";
+			};
+			name = Debug;
+		};
+		9158E6D31EF42F04001FAA2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LispCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LispMac.app/Contents/MacOS/LispMac";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -403,6 +676,22 @@
 			buildConfigurations = (
 				9158E6AF1EF42EDD001FAA2F /* Debug */,
 				9158E6B01EF42EDD001FAA2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9158E6CD1EF42F04001FAA2F /* Build configuration list for PBXNativeTarget "LispCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9158E6CE1EF42F04001FAA2F /* Debug */,
+				9158E6CF1EF42F04001FAA2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9158E6D11EF42F04001FAA2F /* Build configuration list for PBXNativeTarget "LispCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9158E6D21EF42F04001FAA2F /* Debug */,
+				9158E6D31EF42F04001FAA2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9158E6901EF42EDD001FAA2F"
-               BuildableName = "LispMac.app"
-               BlueprintName = "LispMac"
+               BlueprintIdentifier = "9158E6B51EF42F03001FAA2F"
+               BuildableName = "LispCore.framework"
+               BlueprintName = "LispCore"
                ReferencedContainer = "container:LispMac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,36 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9158E6A11EF42EDD001FAA2F"
-               BuildableName = "LispMacTests.xctest"
-               BlueprintName = "LispMacTests"
-               ReferencedContainer = "container:LispMac.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9158E6BD1EF42F04001FAA2F"
-               BuildableName = "LispCoreTests.xctest"
-               BlueprintName = "LispCoreTests"
-               ReferencedContainer = "container:LispMac.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9158E6901EF42EDD001FAA2F"
-            BuildableName = "LispMac.app"
-            BlueprintName = "LispMac"
-            ReferencedContainer = "container:LispMac.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -71,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9158E6901EF42EDD001FAA2F"
-            BuildableName = "LispMac.app"
-            BlueprintName = "LispMac"
+            BlueprintIdentifier = "9158E6B51EF42F03001FAA2F"
+            BuildableName = "LispCore.framework"
+            BlueprintName = "LispCore"
             ReferencedContainer = "container:LispMac.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -90,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9158E6901EF42EDD001FAA2F"
-            BuildableName = "LispMac.app"
-            BlueprintName = "LispMac"
+            BlueprintIdentifier = "9158E6B51EF42F03001FAA2F"
+            BuildableName = "LispCore.framework"
+            BlueprintName = "LispCore"
             ReferencedContainer = "container:LispMac.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
