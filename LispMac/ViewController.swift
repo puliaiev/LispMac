@@ -7,13 +7,20 @@
 //
 
 import Cocoa
+import LispCore
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTextFieldDelegate {
+
+    @IBOutlet weak var label: NSTextField!
+    @IBOutlet weak var textField: NSTextField!
+
+    let lisp = Lisp()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        label.stringValue = "yo"
+        textField.delegate = self
     }
 
     override var representedObject: Any? {
@@ -22,6 +29,12 @@ class ViewController: NSViewController {
         }
     }
 
+    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
+        label.stringValue = lisp.interpret(program: textField.stringValue)
 
+        textField.stringValue = ""
+
+        return true
+    }
 }
 

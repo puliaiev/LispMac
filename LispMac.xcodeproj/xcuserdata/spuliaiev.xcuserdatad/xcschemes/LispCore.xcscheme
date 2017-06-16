@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9158E6BD1EF42F04001FAA2F"
+               BuildableName = "LispCoreTests.xctest"
+               BlueprintName = "LispCoreTests"
+               ReferencedContainer = "container:LispMac.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "9158E6B51EF42F03001FAA2F"
+            BuildableName = "LispCore.framework"
+            BlueprintName = "LispCore"
+            ReferencedContainer = "container:LispMac.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

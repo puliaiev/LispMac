@@ -82,6 +82,7 @@
 		9158E6C51EF42F04001FAA2F /* LispCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LispCoreTests.swift; sourceTree = "<group>"; };
 		9158E6C71EF42F04001FAA2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9158E6D41EF42F41001FAA2F /* lisp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lisp.swift; sourceTree = "<group>"; };
+		9158E6D61EF432D8001FAA2F /* lisp.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = lisp.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +122,7 @@
 		9158E6881EF42EDD001FAA2F = {
 			isa = PBXGroup;
 			children = (
+				9158E6D61EF432D8001FAA2F /* lisp.playground */,
 				9158E6931EF42EDD001FAA2F /* LispMac */,
 				9158E6A51EF42EDD001FAA2F /* LispMacTests */,
 				9158E6B71EF42F04001FAA2F /* LispCore */,
@@ -295,7 +297,6 @@
 					9158E6BD1EF42F04001FAA2F = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 9158E6901EF42EDD001FAA2F;
 					};
 				};
 			};
@@ -633,7 +634,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LispMac.app/Contents/MacOS/LispMac";
 			};
 			name = Debug;
 		};
@@ -647,7 +647,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LispMac.app/Contents/MacOS/LispMac";
 			};
 			name = Release;
 		};
@@ -670,6 +669,7 @@
 				9158E6AD1EF42EDD001FAA2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9158E6AE1EF42EDD001FAA2F /* Build configuration list for PBXNativeTarget "LispMacTests" */ = {
 			isa = XCConfigurationList;
@@ -678,6 +678,7 @@
 				9158E6B01EF42EDD001FAA2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9158E6CD1EF42F04001FAA2F /* Build configuration list for PBXNativeTarget "LispCore" */ = {
 			isa = XCConfigurationList;
@@ -686,6 +687,7 @@
 				9158E6CF1EF42F04001FAA2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9158E6D11EF42F04001FAA2F /* Build configuration list for PBXNativeTarget "LispCoreTests" */ = {
 			isa = XCConfigurationList;
@@ -694,6 +696,7 @@
 				9158E6D31EF42F04001FAA2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
