@@ -185,11 +185,11 @@ public class Lisp {
         let name = list[1]
         let params = list[2]
         let body = list[3]
-        let newList = [Expression.atom("label"), name, Expression.list([Expression.atom("lambda"), params, body])]
+        let newLambda = Expression.list([Expression.atom("lambda"), params, body])
 
         if case Expression.atom(let atom) = name {
             var newEnv = env
-            newEnv[atom] = Expression.list(newList)
+            newEnv[atom] = newLambda
 
             return (name, newEnv)
         }
