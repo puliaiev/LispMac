@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9148B0C21EF58A3900649554 /* parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148B0C11EF58A3900649554 /* parser.swift */; };
 		9158E6951EF42EDD001FAA2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158E6941EF42EDD001FAA2F /* AppDelegate.swift */; };
 		9158E6971EF42EDD001FAA2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158E6961EF42EDD001FAA2F /* ViewController.swift */; };
 		9158E6991EF42EDD001FAA2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9158E6981EF42EDD001FAA2F /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9148B0C11EF58A3900649554 /* parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parser.swift; sourceTree = "<group>"; };
 		9158E6911EF42EDD001FAA2F /* LispMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LispMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9158E6941EF42EDD001FAA2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9158E6961EF42EDD001FAA2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				9158E6D41EF42F41001FAA2F /* lisp.swift */,
+				9148B0C11EF58A3900649554 /* parser.swift */,
 				9158E6B81EF42F04001FAA2F /* LispCore.h */,
 				9158E6B91EF42F04001FAA2F /* Info.plist */,
 			);
@@ -376,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9148B0C21EF58A3900649554 /* parser.swift in Sources */,
 				9158E6D51EF42F41001FAA2F /* lisp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
