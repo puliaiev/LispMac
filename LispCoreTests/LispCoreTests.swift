@@ -69,5 +69,12 @@ class LispCoreTests: XCTestCase {
 
     func testLabel() {
         XCTAssertEqual(lisp.interpret(program: "((label greet (lambda (x) (cond ((atom x) (cons 'hello (cons x '()))) ('t (greet (car x)))))) '(world))"), "(hello world)")
+        XCTAssertEqual(lisp.interpret(program: "(greet '(world))"), "(hello world)")
+    }
+
+    func testDefun() {
+        XCTAssertEqual(lisp.interpret(program: "(defun null. (x) (eq x '()))"), "null.")
+        XCTAssertEqual(lisp.interpret(program: "(null. 'a)"), "()")
+        XCTAssertEqual(lisp.interpret(program: "(null. '())"), "t")
     }
 }
