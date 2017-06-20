@@ -73,7 +73,7 @@ class Parser {
 
         while index < characters.endIndex {
             let currentCharacter = characters[index]
-            if currentCharacter == " " || currentCharacter == ")" {
+            if CharacterSet.whitespacesAndNewlines.contains(character: currentCharacter) || currentCharacter == ")" {
                 if atom.characters.count > 0 {
                     return (Expression.atom(atom), characters.index(before: index))
                 } else {

@@ -33,5 +33,7 @@ class ParserTests: XCTestCase {
         XCTAssertEqual(parser.parse(program: "(quote    a)"), Expression.list([Expression.atom("quote"), Expression.atom("a")]))
 
         XCTAssertEqual(parser.parse(program: " (quote a)"), Expression.list([Expression.atom("quote"), Expression.atom("a")]))
+
+        XCTAssertEqual(parser.parse(program: "(quote\n a)"), Expression.list([Expression.atom("quote"), Expression.atom("a")]))
     }
 }
