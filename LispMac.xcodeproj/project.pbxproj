@@ -21,6 +21,7 @@
 		9158E6CB1EF42F04001FAA2F /* LispCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9158E6B61EF42F03001FAA2F /* LispCore.framework */; };
 		9158E6CC1EF42F04001FAA2F /* LispCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9158E6B61EF42F03001FAA2F /* LispCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9158E6D51EF42F41001FAA2F /* lisp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158E6D41EF42F41001FAA2F /* lisp.swift */; };
+		91D47CBE1EF72EE700C685F9 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D47CBD1EF72EE700C685F9 /* ParserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		9158E6C71EF42F04001FAA2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9158E6D41EF42F41001FAA2F /* lisp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lisp.swift; sourceTree = "<group>"; };
 		9158E6D61EF432D8001FAA2F /* lisp.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = lisp.playground; sourceTree = "<group>"; };
+		91D47CBD1EF72EE700C685F9 /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
+		91D47CCE1EF7D33C00C685F9 /* libswiftAppKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftAppKit.tbd; path = System/Library/PrivateFrameworks/Swift/libswiftAppKit.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,7 @@
 				9158E6B71EF42F04001FAA2F /* LispCore */,
 				9158E6C41EF42F04001FAA2F /* LispCoreTests */,
 				9158E6921EF42EDD001FAA2F /* Products */,
+				91D47CCD1EF7D33C00C685F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,9 +190,18 @@
 			isa = PBXGroup;
 			children = (
 				9158E6C51EF42F04001FAA2F /* LispCoreTests.swift */,
+				91D47CBD1EF72EE700C685F9 /* ParserTests.swift */,
 				9158E6C71EF42F04001FAA2F /* Info.plist */,
 			);
 			path = LispCoreTests;
+			sourceTree = "<group>";
+		};
+		91D47CCD1EF7D33C00C685F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91D47CCE1EF7D33C00C685F9 /* libswiftAppKit.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D47CBE1EF72EE700C685F9 /* ParserTests.swift in Sources */,
 				9158E6C61EF42F04001FAA2F /* LispCoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

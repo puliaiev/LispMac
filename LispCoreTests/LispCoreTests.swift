@@ -42,6 +42,10 @@ class LispCoreTests: XCTestCase {
 
         XCTAssertEqual(lisp.interpret(program: "(eq '(a) '(a))"), "t")
 
+        XCTAssertEqual(lisp.interpret(program: "(eq '(a a) '(a a))"), "t")
+
+        XCTAssertEqual(lisp.interpret(program: "(eq '(a a) '(a b))"), "()")
+
         XCTAssertEqual(lisp.interpret(program: "(eq '(a) '(b))"), "()")
     }
 

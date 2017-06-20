@@ -18,19 +18,23 @@ public class Lisp {
 
     public func interpret(program: String) -> String {
         let expr = parser.parse(program: program)
-        let (evalExpr, newEnv) = eval(expression: expr, env: globalEnv)
-
-        globalEnv = newEnv
+        let evalExpr = eval(expression: expr, env: Environment())
 
         return String(describing: evalExpr)
     }
 
     let parser = Parser()
+}
 
-    func eval(expression: Expression, env: Environment) -> (Expression, Environment) {
+extension Lisp {
+    func eval(expression: Expression, env: Environment) -> Expression {
         switch expression {
         case .atom(let atom):
-            return (env[atom]!, env)
+            guard let expr = env[atom] ?? globalEnv[atom] else {
+                return Expression.atom(":error")
+            }
+
+            return expr
         case .list(let list):
             if let firstExpression = list.first {
                 switch firstExpression {
@@ -53,9 +57,7 @@ public class Lisp {
                     case "defun":
                         return evalDefun(list: list, env: env)
                     default:
-                        var newList = [env[atom1]!]
-                        newList += list.dropFirst()
-                        return eval(expression: Expression.list(newList), env: env)
+                        return evalFuncCall(list: list, env: env)
                     }
                 case .list(let list1):
                     switch list1[0] {
@@ -66,103 +68,103 @@ public class Lisp {
                         case "label":
                             return evalLabel(list: list, env: env)
                         default:
-                            return (Expression.atom(":error"), env)
+                            return Expression.atom(":error")
                         }
                     default:
-                        return (Expression.atom(":error"), env)
+                        return Expression.atom(":error")
                     }
                 }
             }
 
-            return (Expression.atom(":error"), env)
+            return Expression.atom(":error")
         }
     }
 
-    func evalQuote(list: [Expression], env: Environment) -> (Expression, Environment) {
-        return (list[1], env)
+    func evalQuote(list: [Expression], env: Environment) -> Expression {
+        return list[1]
     }
 
-    func evalAtom(list: [Expression], env: Environment) -> (Expression, Environment) {
-        let (evaluatedAtomsParam, _) = eval(expression: list[1], env: env)
+    func evalAtom(list: [Expression], env: Environment) -> Expression {
+        let evaluatedAtomsParam = eval(expression: list[1], env: env)
 
         switch evaluatedAtomsParam {
         case .atom(_):
-            return (Expression.atom("t"), env)
+            return Expression.atom("t")
         case .list(let list):
-            return list.count == 0 ? (Expression.atom("t"), env) : (Expression.list([]), env)
+            return list.count == 0 ? Expression.atom("t") : Expression.list([])
         }
     }
 
-    func evalEq(list: [Expression], env: Environment) -> (Expression, Environment) {
-        let (v1, _) = eval(expression: list[1], env: env)
-        let (v2, _) = eval(expression: list[2], env: env)
+    func evalEq(list: [Expression], env: Environment) -> Expression {
+        let v1 = eval(expression: list[1], env: env)
+        let v2 = eval(expression: list[2], env: env)
 
         if v1 == v2 {
-            return (Expression.atom("t"), env)
+            return Expression.atom("t")
         } else {
-            return (Expression.list([]), env)
+            return Expression.list([])
         }
     }
 
-    func evalCar(list: [Expression], env: Environment) -> (Expression, Environment) {
-        let (v1, _) = eval(expression: list[1], env: env)
+    func evalCar(list: [Expression], env: Environment) -> Expression {
+        let v1 = eval(expression: list[1], env: env)
 
         switch v1 {
         case .atom(_):
-            return (Expression.list([]), env)
+            return Expression.list([])
         case .list(let list):
-            return (list[0], env)
+            return list[0]
         }
     }
 
-    func evalCdr(list: [Expression], env: Environment) -> (Expression, Environment) {
-        let (v1, _) = eval(expression: list[1], env: env)
+    func evalCdr(list: [Expression], env: Environment) -> Expression {
+        let v1 = eval(expression: list[1], env: env)
 
         switch v1 {
         case .atom(_):
-            return (Expression.list([]), env)
+            return Expression.list([])
         case .list(let list):
-            return (Expression.list(Array(list.dropFirst(1))), env)
+            return Expression.list(Array(list.dropFirst(1)))
         }
     }
 
-    func evalCons(list: [Expression], env: Environment) -> (Expression, Environment) {
-        let (v1, _) = eval(expression: list[1], env: env)
-        let (v2, _) = eval(expression: list[2], env: env)
+    func evalCons(list: [Expression], env: Environment) -> Expression {
+        let v1 = eval(expression: list[1], env: env)
+        let v2 = eval(expression: list[2], env: env)
 
         switch v2 {
         case .atom(_):
-            return (Expression.list([v1, v2]), env)
+            return Expression.list([v1, v2])
         case .list(let list):
             var listWithFirst = [v1]
             listWithFirst += list
-            return (Expression.list(listWithFirst), env)
+            return Expression.list(listWithFirst)
         }
     }
 
-    func evalCond(list: [Expression], env: Environment) -> (Expression, Environment) {
+    func evalCond(list: [Expression], env: Environment) -> Expression {
         for expr in list.dropFirst() {
             switch expr {
             case .atom(_):
                 continue
             case .list(let list):
-                let (evalExpression, _) = eval(expression: list[0], env: env)
+                let evalExpression = eval(expression: list[0], env: env)
                 if evalExpression == Expression.atom("t") {
                     return eval(expression: list[1], env: env)
                 }
             }
         }
 
-        return (Expression.atom(":error"), env)
+        return Expression.atom(":error")
     }
 
-    func evalLambda(list: [Expression], env: Environment) -> (Expression, Environment) {
+    func evalLambda(list: [Expression], env: Environment) -> Expression {
         guard case Expression.list(let lambda) = list[0] else {
-            return (Expression.atom(":error"), env)
+            return Expression.atom(":error")
         }
 
         guard case Expression.list(let params) = lambda[1] else {
-            return (Expression.atom(":error"), env)
+            return Expression.atom(":error")
         }
 
         let body = lambda[2]
@@ -172,7 +174,7 @@ public class Lisp {
         var newEnv = env
 
         for (index, argument) in arguments.enumerated() {
-            let (val, _) = eval(expression: argument, env: env)
+            let val = eval(expression: argument, env: env)
             if case Expression.atom(let param) = params[index] {
                 newEnv[param] = val
             }
@@ -181,23 +183,23 @@ public class Lisp {
         return eval(expression: body, env: newEnv)
     }
 
-    func evalDefun(list: [Expression], env: Environment) -> (Expression, Environment) {
+    func evalDefun(list: [Expression], env: Environment) -> Expression {
         let name = list[1]
         let params = list[2]
         let body = list[3]
+
         let newLambda = Expression.list([Expression.atom("lambda"), params, body])
 
         if case Expression.atom(let atom) = name {
-            var newEnv = env
-            newEnv[atom] = newLambda
+            globalEnv[atom] = newLambda
 
-            return (name, newEnv)
+            return name
         }
 
-        return (Expression.atom(":error"), env)
+        return Expression.atom(":error")
     }
 
-    func evalLabel(list: [Expression], env: Environment) -> (Expression, Environment) {
+    func evalLabel(list: [Expression], env: Environment) -> Expression {
         let labelExpr = list[0]
 
         if case Expression.list(let label) = labelExpr {
@@ -207,13 +209,27 @@ public class Lisp {
                 var newExpression = [lambda]
                 newExpression += list.dropFirst()
 
-                var newEnv = env
-                newEnv[name] = labelExpr
+                globalEnv[name] = labelExpr
 
-                return eval(expression: Expression.list(newExpression), env: newEnv)
+                return eval(expression: Expression.list(newExpression), env: env)
             }
         }
 
-        return (Expression.atom(":error"), env)
+        return Expression.atom(":error")
+    }
+
+    func evalFuncCall(list: [Expression], env: Environment) -> Expression {
+        guard case .atom(let funcName) = list[0] else {
+            return Expression.atom(":error")
+        }
+
+        guard let funcDef = env[funcName] ?? globalEnv[funcName] else {
+            return Expression.atom(":error")
+        }
+        
+        var newList = [funcDef]
+        newList += list.dropFirst()
+        
+        return eval(expression: Expression.list(newList), env: env)
     }
 }

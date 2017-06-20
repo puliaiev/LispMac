@@ -8,6 +8,27 @@
 
 import Foundation
 
+extension CharacterSet {
+    func contains(character: Character) -> Bool {
+        let unicodeScalars = String(character).unicodeScalars
+        guard unicodeScalars.count == 1, let unicodeScalar = unicodeScalars.first else {
+            return false
+        }
+
+        return self.contains(unicodeScalar)
+    }
+}
+
+extension String {
+    func trimTrailingWhitespace() -> String {
+        if let trailingWs = self.range(of: "\\s+$", options: .regularExpression) {
+            return self.replacingCharacters(in: trailingWs, with: "")
+        } else {
+            return self
+        }
+    }
+}
+
 class Parser {
     
     func parse(program: String) -> Expression {
@@ -21,6 +42,8 @@ class Parser {
         } else if characters[start] == "'" {
             let r = parseExpression(characters: characters, start: characters.index(after: start))
             return (Expression.list([Expression.atom("quote"), r.expr]), r.end)
+        } else if CharacterSet.whitespacesAndNewlines.contains(character: characters[start]) {
+            return parseExpression(characters: characters, start: characters.index(after: start))
         } else {
             return parseAtom(characters: characters, startIndex: start)
         }
@@ -30,7 +53,7 @@ class Parser {
         var index = characters.index(after: startIndex)
         var listValue: [Expression] = []
         while index < characters.endIndex {
-            if characters[index] == " " {
+            if CharacterSet.whitespacesAndNewlines.contains(character: characters[index]) {
                 index = characters.index(after: index)
             } else if characters[index] == ")" {
                 break
@@ -50,8 +73,12 @@ class Parser {
 
         while index < characters.endIndex {
             let currentCharacter = characters[index]
-            if currentCharacter == " " || currentCharacter == ")"  {
-                return (Expression.atom(atom), characters.index(before: index))
+            if currentCharacter == " " || currentCharacter == ")" {
+                if atom.characters.count > 0 {
+                    return (Expression.atom(atom), characters.index(before: index))
+                } else {
+                    return (Expression.atom(":error"), index)
+                }
             } else {
                 atom.append(currentCharacter)
                 index = characters.index(after: index)
