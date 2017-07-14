@@ -19,8 +19,17 @@ class ParserTests: XCTestCase {
         parser = Parser()
     }
 
+    func testTokenize() {
+        XCTAssertEqual(parser.tokenize(program: "a"), [.text("a")])
+        XCTAssertEqual(parser.tokenize(program: "(quote a)"), [.open, .text("quote"), .text("a"), .close])
+    }
+
     func testBasic() {
+        XCTAssertEqual(parser.parse(program: "a"), Expression.atom("a"))
+
         XCTAssertEqual(parser.parse(program: "(quote a)"), Expression.list([Expression.atom("quote"), Expression.atom("a")]))
+
+        XCTAssertEqual(parser.parse(program: "(quote (quote a) a)"), Expression.list([Expression.atom("quote"), Expression.list([Expression.atom("quote"), Expression.atom("a")]), Expression.atom("a")]))
     }
 
     func testQuote() {

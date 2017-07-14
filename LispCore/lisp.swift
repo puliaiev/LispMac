@@ -12,7 +12,21 @@ typealias Environment = [String: Expression]
 
 public class Lisp {
 
-    public init() {}
+    public init() {
+        loadDefaultLibrary()
+    }
+
+    func loadDefaultLibrary() {
+        guard let file = Bundle(for: Lisp.self).url(forResource: "eval", withExtension: "lisp") else {
+            return
+        }
+
+        let expressions = parser.parse(url: file)
+
+        for expr in expressions {
+            let _ = eval(expression: expr, env: Environment())
+        }
+    }
 
     var globalEnv: Environment = Environment()
 

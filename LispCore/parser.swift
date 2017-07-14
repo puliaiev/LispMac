@@ -32,59 +32,166 @@ extension String {
 class Parser {
     
     func parse(program: String) -> Expression {
-        let (expr, _) = parseExpression(characters: program.characters, start: program.characters.startIndex)
-        return expr
+        let tokens = tokenize(program: program)
+        let exprs = parse(tokens: tokens)
+
+        return exprs[0]
     }
 
-    func parseExpression(characters: String.CharacterView, start: String.CharacterView.Index) -> (expr: Expression, end: String.CharacterView.Index) {
-        if characters[start] == "(" {
-            return parseList(characters: characters, startIndex: start)
-        } else if characters[start] == "'" {
-            let r = parseExpression(characters: characters, start: characters.index(after: start))
-            return (Expression.list([Expression.atom("quote"), r.expr]), r.end)
-        } else if CharacterSet.whitespacesAndNewlines.contains(character: characters[start]) {
-            return parseExpression(characters: characters, start: characters.index(after: start))
-        } else {
-            return parseAtom(characters: characters, startIndex: start)
-        }
-    }
+    func parse(url: URL) -> [Expression] {
+        do {
+            let evalCode = try String(contentsOf: url)
+            let tokens = tokenize(program: evalCode)
+            let exprs = parse(tokens: tokens)
 
-    func parseList(characters: String.CharacterView, startIndex: String.CharacterView.Index) -> (expr: Expression, end: String.CharacterView.Index) {
-        var index = characters.index(after: startIndex)
-        var listValue: [Expression] = []
-        while index < characters.endIndex {
-            if CharacterSet.whitespacesAndNewlines.contains(character: characters[index]) {
-                index = characters.index(after: index)
-            } else if characters[index] == ")" {
-                break
-            } else {
-                let ret = parseExpression(characters: characters, start: index)
-                listValue.append(ret.expr)
-                index = characters.index(after: ret.end)
-            }
+            return exprs
+        } catch {
+            print(error)
         }
 
-        return (Expression.list(listValue), index)
+        return []
     }
 
-    func parseAtom(characters: String.CharacterView, startIndex: String.CharacterView.Index) -> (expr: Expression, end: String.CharacterView.Index) {
-        var index = startIndex
-        var atom = ""
+    enum Token : Equatable {
+        case open, close, quote, text(String)
 
-        while index < characters.endIndex {
-            let currentCharacter = characters[index]
-            if CharacterSet.whitespacesAndNewlines.contains(character: currentCharacter) || currentCharacter == ")" {
-                if atom.characters.count > 0 {
-                    return (Expression.atom(atom), characters.index(before: index))
-                } else {
-                    return (Expression.atom(":error"), index)
+        static func == (lhs: Token, rhs: Token) -> Bool {
+            switch lhs {
+            case .open:
+                if case .open = rhs {
+                    return true
                 }
-            } else {
-                atom.append(currentCharacter)
-                index = characters.index(after: index)
+            case .close:
+                if case .close = rhs {
+                    return true
+                }
+            case .quote:
+                if case .quote = rhs {
+                    return true
+                }
+            case .text(let text):
+                guard case .text(let rhsText) = rhs else {
+                    return false
+                }
+
+                return text == rhsText
+            }
+
+            return false
+        }
+    }
+
+    enum Mode : Equatable {
+        case newLine, code, comment
+    }
+
+    func tokenize(program: String) -> [Token] {
+        var tokens = [Token]()
+        var text = [Character]()
+        var mode: Mode = .newLine
+
+        func appendTextAndClean() {
+            if text.count != 0 {
+                let t = String(text)
+                tokens.append(.text(t))
+                text.removeAll()
             }
         }
 
-        return (Expression.atom(atom), characters.index(before: index))
+        for character in program.characters {
+
+            switch mode {
+            case .newLine, .code:
+                if CharacterSet.whitespacesAndNewlines.contains(character: character) {
+                    appendTextAndClean()
+
+                    if CharacterSet.newlines.contains(character: character) {
+                        mode = .newLine
+                    }
+                } else if character == "(" {
+                    tokens.append(.open)
+                } else if character == ")" {
+                    appendTextAndClean()
+                    tokens.append(.close)
+                } else if character == "'" {
+                    tokens.append(.quote)
+                } else if character == ";" && mode == .newLine {
+                    mode = .comment
+                    continue
+                } else {
+                    text.append(character)
+                }
+
+                mode = .code
+            case .comment:
+                if CharacterSet.newlines.contains(character: character) {
+                    mode = .newLine
+                }
+            }
+        }
+
+        appendTextAndClean()
+
+        return tokens
+    }
+
+    struct ParseState {
+        let expression: Expression
+        let isQuote: Bool
+    }
+
+    func isQuoted(list: [ParseState]) -> Bool {
+        if let first = list.first {
+            return first.isQuote
+        }
+
+        return false
+    }
+
+    func parse(tokens: [Token]) -> [Expression] {
+        var stack: [[ParseState]] = []
+
+        var currentList = [ParseState]()
+
+        for token in tokens {
+            switch token {
+            case .open:
+                stack.append(currentList)
+                currentList = []
+            case .close:
+                let creadedList: Expression = .list(currentList.map({ (state: ParseState) -> Expression in
+                    return state.expression
+                }))
+
+                if let topList = stack.popLast() {
+                    currentList = topList
+                    currentList.append(ParseState(expression: creadedList, isQuote: false))
+                }
+
+            case .quote:
+                stack.append(currentList)
+                currentList = [ParseState(expression: .atom("quote"), isQuote: true)]
+
+            case .text(let text):
+                currentList.append(ParseState(expression: .atom(text), isQuote: false))
+            }
+
+
+            if isQuoted(list: currentList) && currentList.count > 1
+            {
+                let creadedList: Expression = .list(currentList.map({ (state: ParseState) -> Expression in
+                    return state.expression
+                }))
+
+                if let topList = stack.popLast() {
+                    currentList = topList
+                    currentList.append(ParseState(expression: creadedList, isQuote: false))
+                }
+            }
+        }
+
+        return currentList.map({ (state: ParseState) -> Expression in
+            return state.expression
+        })
     }
 }

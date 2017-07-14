@@ -19,6 +19,19 @@ class LispCoreTests: XCTestCase {
         lisp = Lisp()
     }
 
+    func testLibFuncNull() {
+        XCTAssertEqual(lisp.interpret(program: "(null. '())"), "t")
+        XCTAssertEqual(lisp.interpret(program: "(null. 'x)"), "()")
+    }
+
+    func testLibFuncAssoc() {
+        XCTAssertEqual(lisp.interpret(program: "(assoc. 'x1 (pair. '(x1 x2) '(a b)))"), "a")
+    }
+
+    func testLibFuncEval() {
+        XCTAssertEqual(lisp.interpret(program: "(eval. '(car '(a b)) '())"), "a")
+    }
+
     func testQuote() {
         XCTAssertEqual(lisp.interpret(program: "(quote a)"), "a")
 
