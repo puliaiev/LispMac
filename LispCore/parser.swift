@@ -32,11 +32,11 @@ extension String {
 class Parser {
     
     func parse(program: String) -> Expression {
-        let (expr, _) = parseExpression(characters: program.characters, start: program.characters.startIndex)
+        let (expr, _) = parseExpression(characters: program, start: program.startIndex)
         return expr
     }
 
-    func parseExpression(characters: String.CharacterView, start: String.CharacterView.Index) -> (expr: Expression, end: String.CharacterView.Index) {
+    func parseExpression(characters: String, start: String.Index) -> (expr: Expression, end: String.Index) {
         if characters[start] == "(" {
             return parseList(characters: characters, startIndex: start)
         } else if characters[start] == "'" {
@@ -49,7 +49,7 @@ class Parser {
         }
     }
 
-    func parseList(characters: String.CharacterView, startIndex: String.CharacterView.Index) -> (expr: Expression, end: String.CharacterView.Index) {
+    func parseList(characters: String, startIndex: String.Index) -> (expr: Expression, end: String.Index) {
         var index = characters.index(after: startIndex)
         var listValue: [Expression] = []
         while index < characters.endIndex {
@@ -67,14 +67,14 @@ class Parser {
         return (Expression.list(listValue), index)
     }
 
-    func parseAtom(characters: String.CharacterView, startIndex: String.CharacterView.Index) -> (expr: Expression, end: String.CharacterView.Index) {
+    func parseAtom(characters: String, startIndex: String.Index) -> (expr: Expression, end: String.Index) {
         var index = startIndex
         var atom = ""
 
         while index < characters.endIndex {
             let currentCharacter = characters[index]
             if CharacterSet.whitespacesAndNewlines.contains(character: currentCharacter) || currentCharacter == ")" {
-                if atom.characters.count > 0 {
+                if atom.count > 0 {
                     return (Expression.atom(atom), characters.index(before: index))
                 } else {
                     return (Expression.atom(":error"), index)
