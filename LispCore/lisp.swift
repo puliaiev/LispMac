@@ -10,13 +10,18 @@ import Foundation
 
 typealias Environment = [String: Expression]
 
+enum LispError: Error {
+    case runtime
+    case unknown
+}
+
 public class Lisp {
 
     public init() {
-        loadDefaultLibrary()
+        try? loadDefaultLibrary()
     }
 
-    func loadDefaultLibrary() {
+    func loadDefaultLibrary() throws {
         guard let file = Bundle(for: Lisp.self).url(forResource: "eval", withExtension: "lisp") else {
             return
         }
@@ -24,15 +29,15 @@ public class Lisp {
         let expressions = parser.parse(url: file)
 
         for expr in expressions {
-            let _ = eval(expression: expr, env: Environment())
+            let _ = try eval(expression: expr, env: Environment())
         }
     }
 
     var globalEnv: Environment = Environment()
 
-    public func interpret(program: String) -> String {
+    public func interpret(program: String) throws -> String {
         let expr = parser.parse(program: program)
-        let evalExpr = eval(expression: expr, env: Environment())
+        let evalExpr = try eval(expression: expr, env: Environment())
 
         return String(describing: evalExpr)
     }
@@ -41,11 +46,11 @@ public class Lisp {
 }
 
 extension Lisp {
-    func eval(expression: Expression, env: Environment) -> Expression {
+    func eval(expression: Expression, env: Environment) throws -> Expression {
         switch expression {
         case .atom(let atom):
             guard let expr = env[atom] ?? globalEnv[atom] else {
-                return Expression.atom(":error")
+                throw LispError.runtime
             }
 
             return expr
@@ -57,40 +62,40 @@ extension Lisp {
                     case "quote":
                         return evalQuote(list: list, env: env)
                     case "atom":
-                        return evalAtom(list: list, env: env)
+                        return try evalAtom(list: list, env: env)
                     case "eq":
-                        return evalEq(list: list, env: env)
+                        return try evalEq(list: list, env: env)
                     case "car":
-                        return evalCar(list: list, env: env)
+                        return try evalCar(list: list, env: env)
                     case "cdr":
-                        return evalCdr(list: list, env: env)
+                        return try evalCdr(list: list, env: env)
                     case "cons":
-                        return evalCons(list: list, env: env)
+                        return try evalCons(list: list, env: env)
                     case "cond":
-                        return evalCond(list: list, env: env)
+                        return try evalCond(list: list, env: env)
                     case "defun":
-                        return evalDefun(list: list, env: env)
+                        return try evalDefun(list: list, env: env)
                     default:
-                        return evalFuncCall(list: list, env: env)
+                        return try evalFuncCall(list: list, env: env)
                     }
                 case .list(let list1):
                     switch list1[0] {
                     case .atom(let atom):
                         switch atom {
                         case "lambda":
-                            return evalLambda(list: list, env: env)
+                            return try evalLambda(list: list, env: env)
                         case "label":
-                            return evalLabel(list: list, env: env)
+                            return try evalLabel(list: list, env: env)
                         default:
-                            return Expression.atom(":error")
+                            throw LispError.runtime
                         }
                     default:
-                        return Expression.atom(":error")
+                        throw LispError.runtime
                     }
                 }
             }
 
-            return Expression.atom(":error")
+            throw LispError.runtime
         }
     }
 
@@ -98,8 +103,8 @@ extension Lisp {
         return list[1]
     }
 
-    func evalAtom(list: [Expression], env: Environment) -> Expression {
-        let evaluatedAtomsParam = eval(expression: list[1], env: env)
+    func evalAtom(list: [Expression], env: Environment) throws -> Expression {
+        let evaluatedAtomsParam = try eval(expression: list[1], env: env)
 
         switch evaluatedAtomsParam {
         case .atom(_):
@@ -109,9 +114,9 @@ extension Lisp {
         }
     }
 
-    func evalEq(list: [Expression], env: Environment) -> Expression {
-        let v1 = eval(expression: list[1], env: env)
-        let v2 = eval(expression: list[2], env: env)
+    func evalEq(list: [Expression], env: Environment) throws -> Expression {
+        let v1 = try eval(expression: list[1], env: env)
+        let v2 = try eval(expression: list[2], env: env)
 
         if v1 == v2 {
             return Expression.atom("t")
@@ -120,8 +125,8 @@ extension Lisp {
         }
     }
 
-    func evalCar(list: [Expression], env: Environment) -> Expression {
-        let v1 = eval(expression: list[1], env: env)
+    func evalCar(list: [Expression], env: Environment) throws -> Expression {
+        let v1 = try eval(expression: list[1], env: env)
 
         switch v1 {
         case .atom(_):
@@ -131,8 +136,8 @@ extension Lisp {
         }
     }
 
-    func evalCdr(list: [Expression], env: Environment) -> Expression {
-        let v1 = eval(expression: list[1], env: env)
+    func evalCdr(list: [Expression], env: Environment) throws -> Expression {
+        let v1 = try eval(expression: list[1], env: env)
 
         switch v1 {
         case .atom(_):
@@ -142,9 +147,9 @@ extension Lisp {
         }
     }
 
-    func evalCons(list: [Expression], env: Environment) -> Expression {
-        let v1 = eval(expression: list[1], env: env)
-        let v2 = eval(expression: list[2], env: env)
+    func evalCons(list: [Expression], env: Environment) throws -> Expression {
+        let v1 = try eval(expression: list[1], env: env)
+        let v2 = try eval(expression: list[2], env: env)
 
         switch v2 {
         case .atom(_):
@@ -156,29 +161,29 @@ extension Lisp {
         }
     }
 
-    func evalCond(list: [Expression], env: Environment) -> Expression {
+    func evalCond(list: [Expression], env: Environment) throws -> Expression {
         for expr in list.dropFirst() {
             switch expr {
             case .atom(_):
                 continue
             case .list(let list):
-                let evalExpression = eval(expression: list[0], env: env)
+                let evalExpression = try eval(expression: list[0], env: env)
                 if evalExpression == Expression.atom("t") {
-                    return eval(expression: list[1], env: env)
+                    return try eval(expression: list[1], env: env)
                 }
             }
         }
 
-        return Expression.atom(":error")
+        throw LispError.runtime
     }
 
-    func evalLambda(list: [Expression], env: Environment) -> Expression {
+    func evalLambda(list: [Expression], env: Environment) throws -> Expression {
         guard case Expression.list(let lambda) = list[0] else {
-            return Expression.atom(":error")
+            throw LispError.runtime
         }
 
         guard case Expression.list(let params) = lambda[1] else {
-            return Expression.atom(":error")
+            throw LispError.runtime
         }
 
         let body = lambda[2]
@@ -188,16 +193,16 @@ extension Lisp {
         var newEnv = env
 
         for (index, argument) in arguments.enumerated() {
-            let val = eval(expression: argument, env: env)
+            let val = try eval(expression: argument, env: env)
             if case Expression.atom(let param) = params[index] {
                 newEnv[param] = val
             }
         }
 
-        return eval(expression: body, env: newEnv)
+        return try eval(expression: body, env: newEnv)
     }
 
-    func evalDefun(list: [Expression], env: Environment) -> Expression {
+    func evalDefun(list: [Expression], env: Environment) throws -> Expression {
         let name = list[1]
         let params = list[2]
         let body = list[3]
@@ -210,10 +215,10 @@ extension Lisp {
             return name
         }
 
-        return Expression.atom(":error")
+        throw LispError.runtime
     }
 
-    func evalLabel(list: [Expression], env: Environment) -> Expression {
+    func evalLabel(list: [Expression], env: Environment) throws -> Expression {
         let labelExpr = list[0]
 
         if case Expression.list(let label) = labelExpr {
@@ -225,25 +230,25 @@ extension Lisp {
 
                 globalEnv[name] = labelExpr
 
-                return eval(expression: Expression.list(newExpression), env: env)
+                return try eval(expression: Expression.list(newExpression), env: env)
             }
         }
 
-        return Expression.atom(":error")
+        throw LispError.runtime
     }
 
-    func evalFuncCall(list: [Expression], env: Environment) -> Expression {
+    func evalFuncCall(list: [Expression], env: Environment) throws -> Expression {
         guard case .atom(let funcName) = list[0] else {
-            return Expression.atom(":error")
+            throw LispError.runtime
         }
 
         guard let funcDef = env[funcName] ?? globalEnv[funcName] else {
-            return Expression.atom(":error")
+            throw LispError.runtime
         }
         
         var newList = [funcDef]
         newList += list.dropFirst()
         
-        return eval(expression: Expression.list(newList), env: env)
+        return try eval(expression: Expression.list(newList), env: env)
     }
 }

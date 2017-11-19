@@ -30,7 +30,11 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
 
     func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
-        label.stringValue = lisp.interpret(program: textField.stringValue)
+        do {
+            label.stringValue = try lisp.interpret(program: textField.stringValue)
+        } catch {
+            label.stringValue = ":error"
+        }
 
         textField.stringValue = ""
 
