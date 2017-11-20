@@ -65,6 +65,10 @@ class LispCoreTests: XCTestCase {
     func testCarCdr() {
         XCTAssertEqual(try? lisp.interpret(program: "(car '(a b c))"), "a")
 
+        XCTAssertThrowsError(try lisp.interpret(program: "(car 'a)"))
+
+        XCTAssertEqual(try? lisp.interpret(program: "(car '())"), "()")
+
         XCTAssertEqual(try? lisp.interpret(program: "(cdr '(a b c))"), "(b c)")
 
         XCTAssertEqual(try? lisp.interpret(program: "(cdr '(a))"), "()")

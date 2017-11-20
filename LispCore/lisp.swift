@@ -130,9 +130,9 @@ extension Lisp {
 
         switch v1 {
         case .atom(_):
-            return Expression.list([])
+            throw LispError.runtime
         case .list(let list):
-            return list[0]
+            return list.first ?? Expression.list([])
         }
     }
 
