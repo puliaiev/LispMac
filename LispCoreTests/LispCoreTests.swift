@@ -68,6 +68,12 @@ class LispCoreTests: XCTestCase {
         XCTAssertEqual(try? lisp.interpret(program: "(cdr '(a b c))"), "(b c)")
 
         XCTAssertEqual(try? lisp.interpret(program: "(cdr '(a))"), "()")
+
+        XCTAssertEqual(try? lisp.interpret(program: "(caar '((a)))"), "a")
+
+        XCTAssertEqual(try? lisp.interpret(program: "(cadr '(() a b))"), "a")
+
+        XCTAssertEqual(try? lisp.interpret(program: "(cddr '(() a b))"), "(b)")
     }
 
     func testCons() {

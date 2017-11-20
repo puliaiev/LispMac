@@ -242,6 +242,31 @@ extension Lisp {
             throw LispError.runtime
         }
 
+        do {
+            let regex = try NSRegularExpression(pattern: "c([ad]*)r")
+            if let _ = regex.firstMatch(in: funcName, range: NSRange(funcName.startIndex..., in: funcName)) {
+
+                var newFunc = list[1]
+
+                for symbol in funcName.reversed() {
+                    switch symbol {
+                    case "d":
+                        newFunc = Expression.list([Expression.atom("cdr"), newFunc])
+                    case "a":
+                        newFunc = Expression.list([Expression.atom("car"), newFunc])
+                    default:
+                        break
+                    }
+                }
+
+                return try eval(expression: newFunc, env: env)
+            }
+        } catch let error {
+            print("invalid regex: \(error.localizedDescription)")
+            throw LispError.runtime
+        }
+
+
         guard let funcDef = env[funcName] ?? globalEnv[funcName] else {
             throw LispError.runtime
         }
