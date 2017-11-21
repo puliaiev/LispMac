@@ -1,8 +1,6 @@
-﻿; The Lisp defined in McCarthy's 1960 paper, translated into CL.
+; The Lisp defined in McCarthy's 1960 paper, translated into CL.
 ; Assumes only quote, atom, eq, cons, car, cdr, cond.
 ; Bug reports to lispcode@paulgraham.com.
-
-(defun cadr (x) (car (cdr x)))
 
 (defun null. (x)
   (eq x '()))
@@ -66,3 +64,4 @@
   (cond ((null. m) '())
         ('t (cons (eval.  (car m) a)
                   (evlis. (cdr m) a)))))
+
