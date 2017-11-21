@@ -5,6 +5,15 @@ import LispCore
 
 var lisp = Lisp()
 
-let program = "(defun pair (x y) (cons x (cons y '())))"
+var programLines:[String] = []
 
-print(lisp.interpret(program: program))
+programLines.append("(defun yo () 'hello)")
+programLines.append("(yo)")
+
+do {
+    for line in programLines {
+        print(try lisp.interpret(program: line))
+    }
+} catch let error {
+    print("error: \(error)")
+}
