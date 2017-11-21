@@ -21,6 +21,12 @@
 		9158E6CB1EF42F04001FAA2F /* LispCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9158E6B61EF42F03001FAA2F /* LispCore.framework */; };
 		9158E6CC1EF42F04001FAA2F /* LispCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9158E6B61EF42F03001FAA2F /* LispCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9158E6D51EF42F41001FAA2F /* lisp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158E6D41EF42F41001FAA2F /* lisp.swift */; };
+		91BC8E4F1FC4CEBD00B19371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC8E4E1FC4CEBD00B19371 /* AppDelegate.swift */; };
+		91BC8E511FC4CEBD00B19371 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC8E501FC4CEBD00B19371 /* ViewController.swift */; };
+		91BC8E541FC4CEBD00B19371 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91BC8E521FC4CEBD00B19371 /* Main.storyboard */; };
+		91BC8E561FC4CEBD00B19371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91BC8E551FC4CEBD00B19371 /* Assets.xcassets */; };
+		91BC8E591FC4CEBD00B19371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91BC8E571FC4CEBD00B19371 /* LaunchScreen.storyboard */; };
+		91BC8E601FC4D23E00B19371 /* LispCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9158E6B61EF42F03001FAA2F /* LispCore.framework */; };
 		91D47CBE1EF72EE700C685F9 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D47CBD1EF72EE700C685F9 /* ParserTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +53,13 @@
 			remoteInfo = LispMac;
 		};
 		9158E6C91EF42F04001FAA2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9158E6891EF42EDD001FAA2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9158E6B51EF42F03001FAA2F;
+			remoteInfo = LispCore;
+		};
+		91BC8E5E1FC4CEE200B19371 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9158E6891EF42EDD001FAA2F /* Project object */;
 			proxyType = 1;
@@ -90,6 +103,13 @@
 		9158E6C71EF42F04001FAA2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9158E6D41EF42F41001FAA2F /* lisp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lisp.swift; sourceTree = "<group>"; };
 		9158E6D61EF432D8001FAA2F /* lisp.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = lisp.playground; sourceTree = "<group>"; };
+		91BC8E4C1FC4CEBD00B19371 /* LispMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LispMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		91BC8E4E1FC4CEBD00B19371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		91BC8E501FC4CEBD00B19371 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		91BC8E531FC4CEBD00B19371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		91BC8E551FC4CEBD00B19371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		91BC8E581FC4CEBD00B19371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		91BC8E5A1FC4CEBD00B19371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91D47CBD1EF72EE700C685F9 /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
 		91D47CCE1EF7D33C00C685F9 /* libswiftAppKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftAppKit.tbd; path = System/Library/PrivateFrameworks/Swift/libswiftAppKit.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -125,6 +145,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91BC8E491FC4CEBD00B19371 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91BC8E601FC4D23E00B19371 /* LispCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -136,6 +164,7 @@
 				9158E6A51EF42EDD001FAA2F /* LispMacTests */,
 				9158E6B71EF42F04001FAA2F /* LispCore */,
 				9158E6C41EF42F04001FAA2F /* LispCoreTests */,
+				91BC8E4D1FC4CEBD00B19371 /* LispMobile */,
 				9158E6921EF42EDD001FAA2F /* Products */,
 				91D47CCD1EF7D33C00C685F9 /* Frameworks */,
 			);
@@ -148,6 +177,7 @@
 				9158E6A21EF42EDD001FAA2F /* LispMacTests.xctest */,
 				9158E6B61EF42F03001FAA2F /* LispCore.framework */,
 				9158E6BE1EF42F04001FAA2F /* LispCoreTests.xctest */,
+				91BC8E4C1FC4CEBD00B19371 /* LispMobile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,6 +224,19 @@
 				9158E6C71EF42F04001FAA2F /* Info.plist */,
 			);
 			path = LispCoreTests;
+			sourceTree = "<group>";
+		};
+		91BC8E4D1FC4CEBD00B19371 /* LispMobile */ = {
+			isa = PBXGroup;
+			children = (
+				91BC8E4E1FC4CEBD00B19371 /* AppDelegate.swift */,
+				91BC8E501FC4CEBD00B19371 /* ViewController.swift */,
+				91BC8E521FC4CEBD00B19371 /* Main.storyboard */,
+				91BC8E551FC4CEBD00B19371 /* Assets.xcassets */,
+				91BC8E571FC4CEBD00B19371 /* LaunchScreen.storyboard */,
+				91BC8E5A1FC4CEBD00B19371 /* Info.plist */,
+			);
+			path = LispMobile;
 			sourceTree = "<group>";
 		};
 		91D47CCD1EF7D33C00C685F9 /* Frameworks */ = {
@@ -292,13 +335,31 @@
 			productReference = 9158E6BE1EF42F04001FAA2F /* LispCoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		91BC8E4B1FC4CEBD00B19371 /* LispMobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91BC8E5B1FC4CEBD00B19371 /* Build configuration list for PBXNativeTarget "LispMobile" */;
+			buildPhases = (
+				91BC8E481FC4CEBD00B19371 /* Sources */,
+				91BC8E491FC4CEBD00B19371 /* Frameworks */,
+				91BC8E4A1FC4CEBD00B19371 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91BC8E5F1FC4CEE200B19371 /* PBXTargetDependency */,
+			);
+			name = LispMobile;
+			productName = LispMobile;
+			productReference = 91BC8E4C1FC4CEBD00B19371 /* LispMobile.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		9158E6891EF42EDD001FAA2F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Sergii Puliaiev";
 				TargetAttributes = {
@@ -320,6 +381,10 @@
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
+					91BC8E4B1FC4CEBD00B19371 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 9158E68C1EF42EDD001FAA2F /* Build configuration list for PBXProject "LispMac" */;
@@ -339,6 +404,7 @@
 				9158E6A11EF42EDD001FAA2F /* LispMacTests */,
 				9158E6B51EF42F03001FAA2F /* LispCore */,
 				9158E6BD1EF42F04001FAA2F /* LispCoreTests */,
+				91BC8E4B1FC4CEBD00B19371 /* LispMobile */,
 			);
 		};
 /* End PBXProject section */
@@ -372,6 +438,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91BC8E4A1FC4CEBD00B19371 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91BC8E591FC4CEBD00B19371 /* LaunchScreen.storyboard in Resources */,
+				91BC8E561FC4CEBD00B19371 /* Assets.xcassets in Resources */,
+				91BC8E541FC4CEBD00B19371 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +490,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91BC8E481FC4CEBD00B19371 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91BC8E511FC4CEBD00B19371 /* ViewController.swift in Sources */,
+				91BC8E4F1FC4CEBD00B19371 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -437,6 +522,11 @@
 			target = 9158E6B51EF42F03001FAA2F /* LispCore */;
 			targetProxy = 9158E6C91EF42F04001FAA2F /* PBXContainerItemProxy */;
 		};
+		91BC8E5F1FC4CEE200B19371 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9158E6B51EF42F03001FAA2F /* LispCore */;
+			targetProxy = 91BC8E5E1FC4CEE200B19371 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -446,6 +536,22 @@
 				9158E69B1EF42EDD001FAA2F /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		91BC8E521FC4CEBD00B19371 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91BC8E531FC4CEBD00B19371 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		91BC8E571FC4CEBD00B19371 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91BC8E581FC4CEBD00B19371 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -492,6 +598,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -536,6 +643,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -619,8 +727,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				VALID_ARCHS = "i386 x86_64 armv7s armv7 arm64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -644,7 +754,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_VERSION = 3.0;
+				VALID_ARCHS = "i386 x86_64 armv7s armv7 arm64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -673,6 +785,57 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		91BC8E5C1FC4CEBD00B19371 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = LispMobile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		91BC8E5D1FC4CEBD00B19371 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = LispMobile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.foo.bar.LispMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -720,6 +883,15 @@
 			buildConfigurations = (
 				9158E6D21EF42F04001FAA2F /* Debug */,
 				9158E6D31EF42F04001FAA2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91BC8E5B1FC4CEBD00B19371 /* Build configuration list for PBXNativeTarget "LispMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91BC8E5C1FC4CEBD00B19371 /* Debug */,
+				91BC8E5D1FC4CEBD00B19371 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Sergii Puliaiev. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for LispCore.
 FOUNDATION_EXPORT double LispCoreVersionNumber;
