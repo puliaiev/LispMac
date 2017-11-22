@@ -98,7 +98,7 @@ class Parser {
             }
         }
 
-        for character in program.characters {
+        for character in program {
 
             switch mode {
             case .newLine, .code:

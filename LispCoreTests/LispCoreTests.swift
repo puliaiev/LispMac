@@ -32,6 +32,10 @@ class LispCoreTests: XCTestCase {
         XCTAssertEqual(try? lisp.interpret(program: "(eval. '(car '(a b)) '())"), "a")
     }
 
+    func testLibFuncAppend() {
+        XCTAssertEqual(try? lisp.interpret(program: "(append. '(1 2 3 4) '(5 6 7 8))"), "(1 2 3 4 5 6 7 8)")
+    }
+
     func testQuote() {
         XCTAssertEqual(try? lisp.interpret(program: "(quote a)"), "a")
 
