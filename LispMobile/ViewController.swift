@@ -9,22 +9,39 @@
 import UIKit
 import LispCore
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var button: UIButton!
 
     let lisp = Lisp()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
 
-        print(try? lisp.interpret(program: "(car '(a b))"))
+        label.text = try? lisp.interpret(program: "(car '(hello b))")
+        textField.delegate = self
+
+        button .addTarget(self, action: #selector(self.pressed(sender:)), for: .touchUpInside)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func eval() {
+        if let text = textField.text {
+            do {
+                label.text = try lisp.interpret(program: text)
+            } catch let error {
+                label.text = error.localizedDescription
+            }
+        }
     }
 
+    @objc func pressed(sender: UIButton!) {
+        eval()
+    }
 
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        eval()
+    }
 }
 
