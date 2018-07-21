@@ -35,6 +35,10 @@ TODO: Add long description of the pod here.
     'LispCore' => ['LispCore/Assets/*.lisp']
   }
 
+  s.test_spec 'Tests' do |test_spec|
+    test_spec.source_files = 'LispCoreTests/*.swift'
+  end
+
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
