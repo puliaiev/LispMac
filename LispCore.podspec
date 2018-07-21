@@ -27,12 +27,13 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/puliaiev/LispCore.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.13'
 
   s.source_files = 'LispCore/Classes/**/*'
   s.swift_version = '3.2'
-  
+
   s.resource_bundles = {
-    'LispCore' => ['LispCore/Assets/*.lisp']
+    'LispCoreResources' => ['LispCore/Assets/*.lisp']
   }
 
   s.test_spec 'Tests' do |test_spec|

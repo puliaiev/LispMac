@@ -24,15 +24,21 @@ public class Lisp {
     func loadDefaultLibrary() throws {
         let podBundle = Bundle(for: Lisp.self)
 
-        guard let bundleURL = podBundle.url(forResource: "LispCore", withExtension: "bundle") else {
-                return
+        let urls = ["LispCoreResources", "LispCore/LispCoreResources"]
+
+        var bundleURLOpt:URL? = nil
+
+        for url in urls {
+            bundleURLOpt = podBundle.url(forResource: url, withExtension: "bundle")
+            if bundleURLOpt != nil {
+                break
+            }
         }
 
-        guard let bundle = Bundle(url: bundleURL) else {
-            return
-        }
-
-        guard let file = bundle.url(forResource: "eval", withExtension: "lisp") else {
+        guard let bundleURL = bundleURLOpt,
+            let bundle = Bundle(url: bundleURL),
+            let file = bundle.url(forResource: "eval", withExtension: "lisp")
+            else {
             return
         }
 
