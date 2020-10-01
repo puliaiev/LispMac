@@ -38,6 +38,16 @@
                ReferencedContainer = "container:LispOSX.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6A34B9CA384AE28C3F8D610D7ED8A70B"
+               BuildableName = "LispCore-Unit-Tests.xctest"
+               BlueprintName = "LispCore-Unit-Tests"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
