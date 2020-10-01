@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
   s.osx.deployment_target = '10.13'
 
   s.source_files = 'LispCore/Classes/**/*'
-  s.swift_version = '3.2'
+  s.swift_version = '4.0'
 
   s.resource_bundles = {
     'LispCoreResources' => ['LispCore/Assets/*.lisp']
