@@ -1,16 +1,18 @@
 PODS:
   - LispCore (0.1.0)
+  - LispCore/Tests (0.1.0)
 
 DEPENDENCIES:
   - LispCore (from `../`)
+  - LispCore/Tests (from `../`)
 
 EXTERNAL SOURCES:
   LispCore:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LispCore: 784456e310116991d4d64062b51cf065591f61f0
+  LispCore: b1b90790da4300a6d6f9f8bd59a0b37d8617c970
 
-PODFILE CHECKSUM: da1ab3f9403727d50e85b643ba556dd46217fcf8
+PODFILE CHECKSUM: 2a458cad49eb08160498c3e81cee1e88e4a64f95
 
 COCOAPODS: 1.9.3
