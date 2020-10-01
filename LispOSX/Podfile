@@ -8,4 +8,9 @@ target 'LispOSX' do
   # Pods for LispOSX
   pod 'LispCore', :path => '../'
 
+  # Pods for LispOSXTests
+  target 'LispOSXTests' do
+    pod 'LispCore', :path => '../', :testspecs => ['Tests']
+  end
+
 end
