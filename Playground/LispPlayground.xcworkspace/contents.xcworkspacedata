@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:LispOSX.xcodeproj">
+      location = "container:LispPlayground.playground">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:..">
    </FileRef>
 </Workspace>

@@ -13,6 +13,7 @@ typealias Environment = [String: Expression]
 enum LispError: Error {
     case runtime
     case unknown
+    case missingResource
 }
 
 public class Lisp {
@@ -22,30 +23,15 @@ public class Lisp {
     }
 
     func loadDefaultLibrary() throws {
-        let podBundle = Bundle(for: Lisp.self)
-
-        let urls = ["LispCoreResources", "LispCore/LispCoreResources"]
-
-        var bundleURLOpt:URL? = nil
-
-        for url in urls {
-            bundleURLOpt = podBundle.url(forResource: url, withExtension: "bundle")
-            if bundleURLOpt != nil {
-                break
-            }
-        }
-
-        guard let bundleURL = bundleURLOpt,
-            let bundle = Bundle(url: bundleURL),
-            let file = bundle.url(forResource: "eval", withExtension: "lisp")
+        guard let url = Bundle.module.url(forResource: "eval", withExtension: "lisp")
             else {
-            return
+            throw LispError.missingResource
         }
 
-        let expressions = parser.parse(url: file)
+        let expressions = parser.parse(url: url)
 
         for expr in expressions {
-            let _ = try eval(expression: expr, env: Environment())
+            try eval(expression: expr, env: Environment())
         }
     }
 
@@ -62,6 +48,7 @@ public class Lisp {
 }
 
 extension Lisp {
+    @discardableResult
     func eval(expression: Expression, env: Environment) throws -> Expression {
         switch expression {
         case .atom(let atom):
@@ -116,7 +103,7 @@ extension Lisp {
     }
 
     func evalQuote(list: [Expression], env: Environment) -> Expression {
-        return list[1]
+        list[1]
     }
 
     func evalAtom(list: [Expression], env: Environment) throws -> Expression {
