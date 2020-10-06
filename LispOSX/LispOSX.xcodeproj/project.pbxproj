@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,9 +11,8 @@
 		9157CC9C2103E6DB0001FC61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157CC9B2103E6DB0001FC61 /* ViewController.swift */; };
 		9157CC9E2103E6DC0001FC61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9157CC9D2103E6DC0001FC61 /* Assets.xcassets */; };
 		9157CCA12103E6DC0001FC61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9157CC9F2103E6DC0001FC61 /* Main.storyboard */; };
-		9BAFA1B91D89D44ADA597E3B /* Pods_LispOSX_LispOSXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A88EE1BDC7A6241DB34AAF9 /* Pods_LispOSX_LispOSXTests.framework */; };
+		ABE98DAE252CB32400E4EF7C /* LispCore in Frameworks */ = {isa = PBXBuildFile; productRef = ABE98DAD252CB32400E4EF7C /* LispCore */; };
 		AC6A6C80252609780096F616 /* LispOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6A6C7F252609780096F616 /* LispOSXTests.swift */; };
-		ED25E4B00A5AF8F0568AFD2B /* Pods_LispOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DA4F13D53D8CC5F19F9D92 /* Pods_LispOSX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,9 +26,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1967D1347B21B776DE749684 /* Pods-LispOSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LispOSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-LispOSX/Pods-LispOSX.release.xcconfig"; sourceTree = "<group>"; };
-		1A88EE1BDC7A6241DB34AAF9 /* Pods_LispOSX_LispOSXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LispOSX_LispOSXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		69DA4F13D53D8CC5F19F9D92 /* Pods_LispOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LispOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9157CC962103E6DB0001FC61 /* LispOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LispOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9157CC992103E6DB0001FC61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9157CC9B2103E6DB0001FC61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,12 +33,10 @@
 		9157CCA02103E6DC0001FC61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9157CCA22103E6DC0001FC61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9157CCA32103E6DC0001FC61 /* LispOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LispOSX.entitlements; sourceTree = "<group>"; };
+		ABE98DAA252CB31B00E4EF7C /* LispMac */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LispMac; path = ..; sourceTree = "<group>"; };
 		AC6A6C7D252609780096F616 /* LispOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LispOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6A6C7F252609780096F616 /* LispOSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LispOSXTests.swift; sourceTree = "<group>"; };
 		AC6A6C81252609780096F616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C904D684F1880E89C99C21C9 /* Pods-LispOSX-LispOSXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LispOSX-LispOSXTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LispOSX-LispOSXTests/Pods-LispOSX-LispOSXTests.release.xcconfig"; sourceTree = "<group>"; };
-		D7008021769CAD160AFAE9EC /* Pods-LispOSX-LispOSXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LispOSX-LispOSXTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LispOSX-LispOSXTests/Pods-LispOSX-LispOSXTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E3F5F810DF19D1321DF4D90A /* Pods-LispOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LispOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LispOSX/Pods-LispOSX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED25E4B00A5AF8F0568AFD2B /* Pods_LispOSX.framework in Frameworks */,
+				ABE98DAE252CB32400E4EF7C /* LispCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,30 +52,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BAFA1B91D89D44ADA597E3B /* Pods_LispOSX_LispOSXTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2802E3AFF194F89F04DC61CA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				69DA4F13D53D8CC5F19F9D92 /* Pods_LispOSX.framework */,
-				1A88EE1BDC7A6241DB34AAF9 /* Pods_LispOSX_LispOSXTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9157CC8D2103E6DB0001FC61 = {
 			isa = PBXGroup;
 			children = (
+				ABE98DAA252CB31B00E4EF7C /* LispMac */,
 				9157CC982103E6DB0001FC61 /* LispOSX */,
 				AC6A6C7E252609780096F616 /* LispOSXTests */,
 				9157CC972103E6DB0001FC61 /* Products */,
-				AF12907AB2815A510DADE73A /* Pods */,
-				2802E3AFF194F89F04DC61CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,17 +99,6 @@
 			path = LispOSXTests;
 			sourceTree = "<group>";
 		};
-		AF12907AB2815A510DADE73A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E3F5F810DF19D1321DF4D90A /* Pods-LispOSX.debug.xcconfig */,
-				1967D1347B21B776DE749684 /* Pods-LispOSX.release.xcconfig */,
-				D7008021769CAD160AFAE9EC /* Pods-LispOSX-LispOSXTests.debug.xcconfig */,
-				C904D684F1880E89C99C21C9 /* Pods-LispOSX-LispOSXTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,17 +106,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9157CCA62103E6DC0001FC61 /* Build configuration list for PBXNativeTarget "LispOSX" */;
 			buildPhases = (
-				531953BC51E7E2C7C1C572A9 /* [CP] Check Pods Manifest.lock */,
 				9157CC922103E6DB0001FC61 /* Sources */,
 				9157CC932103E6DB0001FC61 /* Frameworks */,
 				9157CC942103E6DB0001FC61 /* Resources */,
-				A82AF45AFAEBE04A0A380B3E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = LispOSX;
+			packageProductDependencies = (
+				ABE98DAD252CB32400E4EF7C /* LispCore */,
+			);
 			productName = LispOSX;
 			productReference = 9157CC962103E6DB0001FC61 /* LispOSX.app */;
 			productType = "com.apple.product-type.application";
@@ -153,11 +126,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC6A6C86252609780096F616 /* Build configuration list for PBXNativeTarget "LispOSXTests" */;
 			buildPhases = (
-				FF72C35F7DBB81BA9670221E /* [CP] Check Pods Manifest.lock */,
 				AC6A6C79252609780096F616 /* Sources */,
 				AC6A6C7A252609780096F616 /* Frameworks */,
 				AC6A6C7B252609780096F616 /* Resources */,
-				EA0ACDC759F86D3A3D02E27B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,11 +147,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Sergii Puliaiev";
 				TargetAttributes = {
 					9157CC952103E6DB0001FC61 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1200;
 					};
 					AC6A6C7C252609780096F616 = {
 						CreatedOnToolsVersion = 11.7;
@@ -225,83 +197,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		531953BC51E7E2C7C1C572A9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LispOSX-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A82AF45AFAEBE04A0A380B3E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LispOSX/Pods-LispOSX-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LispOSX/Pods-LispOSX-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LispOSX/Pods-LispOSX-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EA0ACDC759F86D3A3D02E27B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LispOSX-LispOSXTests/Pods-LispOSX-LispOSXTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LispOSX-LispOSXTests/Pods-LispOSX-LispOSXTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LispOSX-LispOSXTests/Pods-LispOSX-LispOSXTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FF72C35F7DBB81BA9670221E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LispOSX-LispOSXTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9157CC922103E6DB0001FC61 /* Sources */ = {
@@ -369,6 +264,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -429,6 +325,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -458,10 +355,10 @@
 		};
 		9157CCA72103E6DC0001FC61 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3F5F810DF19D1321DF4D90A /* Pods-LispOSX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LispOSX/LispOSX.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = LispOSX/Info.plist;
@@ -469,18 +366,19 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.puliaiev.LispOSX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		9157CCA82103E6DC0001FC61 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1967D1347B21B776DE749684 /* Pods-LispOSX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LispOSX/LispOSX.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = LispOSX/Info.plist;
@@ -488,15 +386,15 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.puliaiev.LispOSX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		AC6A6C84252609780096F616 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7008021769CAD160AFAE9EC /* Pods-LispOSX-LispOSXTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -519,7 +417,6 @@
 		};
 		AC6A6C85252609780096F616 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C904D684F1880E89C99C21C9 /* Pods-LispOSX-LispOSXTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -570,6 +467,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABE98DAD252CB32400E4EF7C /* LispCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LispCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9157CC8E2103E6DB0001FC61 /* Project object */;
 }
