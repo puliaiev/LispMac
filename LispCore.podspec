@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'LispMac'
+  s.name = 'LispCore'
   s.version = '0.1.0'
   s.license = 'MIT'
   s.summary = 'Common Lisp interpreter for macOS and iOS.'
