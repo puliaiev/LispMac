@@ -12,6 +12,9 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.15'
 
   s.source_files = 'Sources/LispCore/**/*.swift'
-
+  s.resource_bundles = {
+    'LispCore_LispCore' => ['Sources/LispCore/Resources/**/*.*']
+  }
+  
   s.swift_version = '5.3'
 end
