@@ -21,6 +21,6 @@ let package = Package(
                 Resource.copy("Resources/eval.lisp"),
             ]),
         .testTarget(name: "LispCoreTests",
-                dependencies: ["LispCore"])
+            dependencies: ["LispCore"])
     ]
 )
