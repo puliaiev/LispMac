@@ -1,6 +1,6 @@
 //
 //  custom_resource_bundle_accessor.swift
-//  SwiftLisp
+//  LispMac
 //
 //  Created by Roman Podymov on 10/21/20.
 //  Copyright © 2020 Roman Podymov. All rights reserved.
